@@ -151,6 +151,8 @@ class TitleState extends MusicBeatState
 
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;
+	var osBounce:FlxSprite;
+	var bgBl:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
@@ -196,7 +198,7 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
+		logoBl = new FlxSprite(182, -40);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
@@ -204,6 +206,25 @@ class TitleState extends MusicBeatState
 		logoBl.updateHitbox();
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
+		
+		osBounce = new FlxSprite(182, 150);
+		osBounce.frames = Paths.getSparrowAtlas('osBounceTitle');
+		osBounce.antialiasing = ClientPrefs.globalAntialiasing;
+		osBounce.animation.addByPrefix('bump', 'Oswald_Bop F', 24, false);
+		osBounce.animation.play('bump');
+		osBounce.updateHitbox();
+		osBounce.screenCenter();
+		osBounce.y += 130;
+
+		bgBl = new FlxSprite(0, 0);
+		bgBl.frames = Paths.getSparrowAtlas('bgBounceTitle');
+		bgBl.animation.addByPrefix('danceLeft', 'bounceLeft instance 1', 24, false);
+		bgBl.animation.addByPrefix('danceRight', 'bounceRight instance 1', 24, false);
+
+		/*
+		bgBl.animation.addByIndices('danceLeft', 'Background Bop instance 1', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
+		bgBl.animation.addByIndices('danceRight', 'Background Bop instance 1', [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+*/
 
 		swagShader = new ColorSwap();
 		if(!FlxG.save.data.psykaEasterEgg || !easterEggEnabled) {
@@ -220,7 +241,9 @@ class TitleState extends MusicBeatState
 			gfDance.animation.addByIndices('danceRight', 'psykaDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
-		add(gfDance);
+		//add(gfDance);
+		add(bgBl);
+		add(osBounce);
 		gfDance.shader = swagShader.shader;
 		add(logoBl);
 		//logoBl.shader = swagShader.shader;
