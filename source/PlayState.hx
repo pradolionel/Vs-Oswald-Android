@@ -1092,7 +1092,7 @@ blackFG.scrollFactor.set();
 					schoolIntro(doof);
 
 				case "rabbit's-luck" | "rabbit's-luck-hard":
-					startDialo<gue(dialogueJson, 'rabbitfoot');
+					startDialogue(dialogueJson, 'rabbitfoot');
 
 				default:
 					startCountdown();
