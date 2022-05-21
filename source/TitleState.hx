@@ -199,14 +199,14 @@ class TitleState extends MusicBeatState
 		add(bg);
 
 		logoBl = new FlxSprite(182, -40);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		logoBl.frames = Paths.getSparrowAtlas('logoBumpin_os');
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
-		
+
 		osBounce = new FlxSprite(182, 150);
 		osBounce.frames = Paths.getSparrowAtlas('osBounceTitle');
 		osBounce.antialiasing = ClientPrefs.globalAntialiasing;
@@ -225,6 +225,7 @@ class TitleState extends MusicBeatState
 		bgBl.animation.addByIndices('danceLeft', 'Background Bop instance 1', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
 		bgBl.animation.addByIndices('danceRight', 'Background Bop instance 1', [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 */
+
 
 		swagShader = new ColorSwap();
 		if(!FlxG.save.data.psykaEasterEgg || !easterEggEnabled) {
