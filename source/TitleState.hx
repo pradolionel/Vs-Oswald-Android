@@ -474,21 +474,37 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
+		danceLeft = !danceLeft;
+
 		if(logoBl != null) 
 			logoBl.animation.play('bump');
 
+		if(osBounce != null) 
+			osBounce.animation.play('bump', true);
+
 		if(gfDance != null) {
-			danceLeft = !danceLeft;
+			//danceLeft = !danceLeft;
 
 			if (danceLeft)
-				gfDance.animation.play('danceRight');
+				{gfDance.animation.play('danceRight');
+				gfDance.y += 50;}
 			else
-				gfDance.animation.play('danceLeft');
+				{gfDance.animation.play('danceLeft');
+				gfDance.y -= 50;}
 		}
 
-		if(!closedState) {
-			sickBeats++;
-			switch (sickBeats)
+		if(bgBl != null) {
+			//danceLeft = !danceLeft;
+
+			if (danceLeft)
+				bgBl.animation.play('danceRight');
+				
+			else
+				bgBl.animation.play('danceLeft');
+		}
+
+		if (!closedState) {
+				switch (curBeat)
 			{
 				case 1:
 					createCoolText(['Psych Engine by'], 45);
