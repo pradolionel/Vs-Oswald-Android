@@ -125,6 +125,9 @@ class CustomControlsState extends MusicBeatSubstate
 		importbutton.resize(125,50);
 		importbutton.setLabelFormat("VCR OSD Mono", 24, FlxColor.BLACK,"center");
 
+		// add bg
+		add(bg);
+
 		// add buttons
 		add(exitbutton);
 		add(savebutton);
