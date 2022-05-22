@@ -1,0 +1,30 @@
+{
+	"storyName": "None paper",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		0,
+		0,
+		100
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Last Straw",
+			"none",
+			[
+				0,
+				155,
+				255
+			]
+		]
+	],
+	"weekName": "none"
+}
