@@ -216,6 +216,9 @@ class PlayState extends MusicBeatState
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
+	
+	var watermark:FlxText;
+	
 	var bgGhouls:BGSprite;
 	public var hell:Bool = false;
 	public var hudAlpha:Bool = false;
@@ -961,6 +964,13 @@ blackFG.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
+		
+		watermark = new FlxText(scoreTxt.x + 30, scoreTxt.y, 0, "PORT BY SOPUNIC508");
+		watermark.scrollFactor.set();
+		watermark.borderSize = 1.25;
+		watermark.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		watermark.visible = !ClientPrefs.hideHud;
+		add(watermark);
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -984,6 +994,7 @@ blackFG.scrollFactor.set();
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
+		watermark.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		#if mobileC
